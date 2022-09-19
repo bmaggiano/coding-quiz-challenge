@@ -9,6 +9,10 @@
     color: white;
     text-align: center;
 }
+#start {
+    margin-top: 20px;
+    border-radius: 20px;
+}
 button {
     height: 50px;
     width: 200px;
@@ -29,4 +33,12 @@ header {
 }
 .choices {
     text-decoration: none;
+}
+#description {
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.intro h2 {
+    font-size: 40px;
+    font-family: sans-serif;
 }
