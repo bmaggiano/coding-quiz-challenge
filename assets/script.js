@@ -10,14 +10,21 @@ const questions = [{
 },
 {
     question: "If you wanted to style an HTML class, which character would you use?",
-    options: ['#', '$', '.', '&'],
+    options: ['#', '$', '&', '.'],
     answer: ".",
 },
 {
     question: "When using comparisons, what does === describe?",
-    options: ['Equal in type', 'Equal in value', 'Equal in type and value', 'Not equal at all'],
+    options: ['Equal in type', 'Equal in type and value', 'Equal in value', 'Not equal at all'],
     answer: "Equal in type and value",
-},]
+},
+{
+    question: "What does CSS stand for?",
+    options: ['Cascading style sheet', 'Central server system', 'Client side syntax', 'Colorful style signal'],
+    answer: 'Cascading style sheet',
+}]
+
+const countEl = document.getElementById('counter')
 const button = document.getElementById('start')
 const timerEl = document.getElementById('timer')
 const testQuestion = document.getElementById('question')
@@ -28,7 +35,7 @@ const btnTwo = document.getElementById("btn-two")
 const btnThree = document.getElementById("btn-three")
 const btnFour = document.getElementById("btn-four")
 const description = document.getElementById('description')
-
+let count = 0;
 
 let timeLeft = 60;
 btnOne.style.display = 'none';
@@ -59,7 +66,10 @@ function countdown() {
     
   })
 
-  function questionOne() {    
+  function questionOne() {  
+    // count ++;
+    countEl.textContent = count;
+    // countEl.textContent = count;  
     btnOne.style.display = 'block';
     btnTwo.style.display = 'block';
     btnThree.style.display = 'block';
@@ -72,12 +82,17 @@ function countdown() {
         btnThree.textContent = questions[0].options[2];
         btnFour.textContent = questions[0].options[3];
   }
+
   btnThree.addEventListener('click', function() {
+    
     questionTwo();
-  })
+  }, {once : true})
 }
 
-function questionTwo() {    
+function questionTwo() {   
+    count ++;
+    countEl.textContent = count;
+    // countEl.textContent = count; 
     btnOne.style.display = 'block';
     btnTwo.style.display = 'block';
     btnThree.style.display = 'block';
@@ -91,11 +106,15 @@ function questionTwo() {
         btnFour.textContent = questions[1].options[3];
   }
   btnOne.addEventListener('click', function() {
+    
     questionThree();
-  })
+  }, {once : true})
 }
 
-function questionThree() {    
+function questionThree() { 
+    count ++;
+    countEl.textContent = count;  
+    // countEl.textContent = count; 
     btnOne.style.display = 'block';
     btnTwo.style.display = 'block';
     btnThree.style.display = 'block';
@@ -108,12 +127,15 @@ function questionThree() {
         btnThree.textContent = questions[2].options[2];
         btnFour.textContent = questions[2].options[3];
   }
-  btnThree.addEventListener('click', function() {
+  btnFour.addEventListener('click', function() {
+    
     questionFour();
-  })
+  }, {once : true})
 }
 
-function questionFour() {    
+function questionFour() {
+    // count ++;
+    // countEl.textContent = count;    
     btnOne.style.display = 'block';
     btnTwo.style.display = 'block';
     btnThree.style.display = 'block';
@@ -126,13 +148,32 @@ function questionFour() {
         btnThree.textContent = questions[3].options[2];
         btnFour.textContent = questions[3].options[3];
   }
-  btnThree.addEventListener('click', function() {
-    alert("Congratulations")
-  })
+  btnTwo.addEventListener('click', function() {
+    count ++;
+    countEl.textContent = count;
+    questionFive()
+  }, {once : true})
 }
 
-
-
-  function displayMessage() {
-
+function questionFive() { 
+     
+    // countEl.textContent = count; 
+    btnOne.style.display = 'block';
+    btnTwo.style.display = 'block';
+    btnThree.style.display = 'block';
+    btnFour.style.display = 'block';
+        for (let i = 0; i < questions.length; i++) {
+        // console.log(questions[i])
+        test.textContent = questions[4].question;
+        btnOne.textContent = questions[4].options[0];
+        btnTwo.textContent = questions[4].options[1];
+        btnThree.textContent = questions[4].options[2];
+        btnFour.textContent = questions[4].options[3];
   }
+  btnOne.addEventListener('click', function() {
+    count ++;
+    countEl.textContent = count; 
+  }, {once : true})
+  
+}
+
