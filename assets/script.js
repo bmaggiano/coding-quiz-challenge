@@ -35,6 +35,7 @@ const btnTwo = document.getElementById("btn-two")
 const btnThree = document.getElementById("btn-three")
 const btnFour = document.getElementById("btn-four")
 const description = document.getElementById('description')
+const score = document.getElementById('score')
 let count = 0;
 
 let timeLeft = 60;
@@ -53,6 +54,7 @@ function countdown() {
       if (timeLeft === 0) {
         clearInterval(timeInterval)
         timerEl.textContent = "Time's Up";
+        //Something must go here
         displayMessage()
       }
     }, 1000);
@@ -81,12 +83,6 @@ function countdown() {
         btnFour.textContent = questions[0].options[3];
   }
 
-  [btnOne, btnTwo, btnFour].forEach((element)=>{
-    element.addEventListener('click', (e)=>{
-        timeLeft -=5;
-    })
-  }, {once : true})
-
   btnThree.addEventListener('click', function() {
     questionTwo();
   }, {once : true})
@@ -109,14 +105,7 @@ function questionTwo() {
         btnFour.textContent = questions[1].options[3];
   }
 
-  [btnThree, btnTwo, btnFour].forEach((element)=>{
-    element.addEventListener('click', (e)=>{
-        timeLeft -=5;
-    })
-  }, {once : true})
-
   btnOne.addEventListener('click', function() {
-    
     questionThree();
   }, {once : true})
 }
@@ -138,14 +127,7 @@ function questionThree() {
         btnFour.textContent = questions[2].options[3];
   }
 
-  [btnOne, btnTwo, btnThree].forEach((element)=>{
-    element.addEventListener('click', (e)=>{
-        timeLeft -=5;
-    })
-  }, {once : true})
-
   btnFour.addEventListener('click', function() {
-    
     questionFour();
   }, {once : true})
 }
@@ -166,15 +148,7 @@ function questionFour() {
         btnFour.textContent = questions[3].options[3];
   }
 
-  [btnOne, btnThree, btnFour].forEach((element)=>{
-    element.addEventListener('click', (e)=>{
-        timeLeft -=5;
-    })
-  }, {once : true})
-
   btnTwo.addEventListener('click', function() {
-    // count ++;
-    // countEl.textContent = count;
     questionFive()
   }, {once : true})
 }
@@ -196,16 +170,17 @@ function questionFive() {
         btnFour.textContent = questions[4].options[3];
   }
 
-  [btnThree, btnTwo, btnFour].forEach((element)=>{
-    element.addEventListener('click', (e)=>{
-        timeLeft -=5;
-    })
-  }, {once : true})
-
   btnOne.addEventListener('click', function() {
     count ++;
     countEl.textContent = count;
+    console.log(timeLeft)
+    localStorage.setItem('score', timeLeft)
+    renderScore()
   }, {once : true})
-  
+}
+
+function renderScore() {
+    const score = localStorage.getItem('score');
+    document.getElementById('score').innerHTML = score;
 }
 
