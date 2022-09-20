@@ -36,17 +36,22 @@ const btnThree = document.getElementById("btn-three")
 const btnFour = document.getElementById("btn-four")
 const description = document.getElementById('description')
 const score = document.getElementById('score')
+const submit = document.getElementById('submit')
+const initials = document.getElementById('initials')
 let count = 0;
 
 let timeLeft = 60;
+initials.style.display = 'none'
+submit.style.display = 'none'
 btnOne.style.display = 'none';
 btnTwo.style.display = 'none';
 btnThree.style.display = 'none';
 btnFour.style.display = 'none';
+timerEl.textContent = `You have ${timeLeft} seconds left... are you ready?!`;
 
 function countdown() {    
-    timerEl.textContent = `You have ${timeLeft} seconds left!`;
-
+  
+  timerEl.textContent = `You have ${timeLeft} seconds left!`;
     var timeInterval = setInterval(function () {
       timeLeft--;
       timerEl.textContent = `You have ${timeLeft} seconds left!`;
@@ -56,7 +61,7 @@ function countdown() {
         timerEl.textContent = "Time's Up";
         //Something must go here
         displayMessage()
-      }
+      };
     }, 1000);
   }
 
@@ -175,6 +180,7 @@ function questionFive() {
     countEl.textContent = count;
     console.log(timeLeft)
     localStorage.setItem('score', timeLeft)
+    
     renderScore()
 }, {once : true})
 }
@@ -182,6 +188,9 @@ function questionFive() {
 
 
 function renderScore() {
+    initials.style.display = 'block'
+    submit.style.display = 'block'
+    timerEl.style.display='none';
     btnOne.style.display = 'none';
     btnTwo.style.display = 'none';
     btnThree.style.display = 'none';
@@ -189,6 +198,6 @@ function renderScore() {
     countEl.style.display = 'none'
     const score = localStorage.getItem('score');
     // document.getElementById('score').innerHTML = score;
-    test.textContent = `Congrats!! Your score is ${score}`
+    test.textContent = `Congrats!! Your score is ${score}!`
     
 }

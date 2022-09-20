@@ -42,3 +42,14 @@ header {
     font-size: 40px;
     font-family: sans-serif;
 }
+input {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+#submit {
+    border-radius: 25px;
+    padding: 10px;
+    cursor: pointer;
+}
