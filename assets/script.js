@@ -150,37 +150,45 @@ function questionFour() {
 
   btnTwo.addEventListener('click', function() {
     questionFive()
-  }, {once : true})
+}, {once : true})
 }
 
 function questionFive() { 
-     count ++;
+    count ++;
     countEl.textContent = count;
     // countEl.textContent = count; 
     btnOne.style.display = 'block';
     btnTwo.style.display = 'block';
     btnThree.style.display = 'block';
     btnFour.style.display = 'block';
-        for (let i = 0; i < questions.length; i++) {
+    for (let i = 0; i < questions.length; i++) {
         // console.log(questions[i])
         test.textContent = questions[4].question;
         btnOne.textContent = questions[4].options[0];
         btnTwo.textContent = questions[4].options[1];
         btnThree.textContent = questions[4].options[2];
         btnFour.textContent = questions[4].options[3];
-  }
-
+    }
+    
   btnOne.addEventListener('click', function() {
-    count ++;
+      count ++;
     countEl.textContent = count;
     console.log(timeLeft)
     localStorage.setItem('score', timeLeft)
     renderScore()
-  }, {once : true})
+}, {once : true})
 }
+
+
 
 function renderScore() {
+    btnOne.style.display = 'none';
+    btnTwo.style.display = 'none';
+    btnThree.style.display = 'none';
+    btnFour.style.display = 'none';
+    countEl.style.display = 'none'
     const score = localStorage.getItem('score');
-    document.getElementById('score').innerHTML = score;
+    // document.getElementById('score').innerHTML = score;
+    test.textContent = `Congrats!! Your score is ${score}`
+    
 }
-
