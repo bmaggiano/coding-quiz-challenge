@@ -67,9 +67,7 @@ function countdown() {
   })
 
   function questionOne() {  
-    // count ++;
     countEl.textContent = count;
-    // countEl.textContent = count;  
     btnOne.style.display = 'block';
     btnTwo.style.display = 'block';
     btnThree.style.display = 'block';
@@ -83,8 +81,13 @@ function countdown() {
         btnFour.textContent = questions[0].options[3];
   }
 
+  [btnOne, btnTwo, btnFour].forEach((element)=>{
+    element.addEventListener('click', (e)=>{
+        timeLeft -=5;
+    })
+  }, {once : true})
+
   btnThree.addEventListener('click', function() {
-    
     questionTwo();
   }, {once : true})
 }
@@ -134,8 +137,8 @@ function questionThree() {
 }
 
 function questionFour() {
-    // count ++;
-    // countEl.textContent = count;    
+    count ++;
+    countEl.textContent = count;    
     btnOne.style.display = 'block';
     btnTwo.style.display = 'block';
     btnThree.style.display = 'block';
@@ -149,14 +152,15 @@ function questionFour() {
         btnFour.textContent = questions[3].options[3];
   }
   btnTwo.addEventListener('click', function() {
-    count ++;
-    countEl.textContent = count;
+    // count ++;
+    // countEl.textContent = count;
     questionFive()
   }, {once : true})
 }
 
 function questionFive() { 
-     
+     count ++;
+    countEl.textContent = count;
     // countEl.textContent = count; 
     btnOne.style.display = 'block';
     btnTwo.style.display = 'block';
@@ -172,7 +176,7 @@ function questionFive() {
   }
   btnOne.addEventListener('click', function() {
     count ++;
-    countEl.textContent = count; 
+    countEl.textContent = count;
   }, {once : true})
   
 }
