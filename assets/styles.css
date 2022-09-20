@@ -51,5 +51,6 @@ input {
 #submit {
     border-radius: 25px;
     padding: 10px;
+    margin-left: 35%;
     cursor: pointer;
 }

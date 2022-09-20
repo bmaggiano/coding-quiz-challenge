@@ -39,8 +39,9 @@ const score = document.getElementById('score')
 const submit = document.getElementById('submit')
 const initials = document.getElementById('initials')
 let count = 0;
-
 let timeLeft = 60;
+
+
 initials.style.display = 'none'
 submit.style.display = 'none'
 btnOne.style.display = 'none';
@@ -52,7 +53,7 @@ timerEl.textContent = `You have ${timeLeft} seconds left... are you ready?!`;
 function countdown() {    
   
   timerEl.textContent = `You have ${timeLeft} seconds left!`;
-    var timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
       timeLeft--;
       timerEl.textContent = `You have ${timeLeft} seconds left!`;
   
@@ -66,6 +67,7 @@ function countdown() {
   }
 
   button.addEventListener('click', function() {
+    timeLeft = 60;
     button.style.display = 'none';
     description.style.display = 'none';
     countdown();
@@ -178,26 +180,70 @@ function questionFive() {
   btnOne.addEventListener('click', function() {
       count ++;
     countEl.textContent = count;
-    console.log(timeLeft)
+    // console.log(timeLeft)
     localStorage.setItem('score', timeLeft)
-    
     renderScore()
-}, {once : true})
+  }, {once : true})
 }
 
 
 
 function renderScore() {
-    initials.style.display = 'block'
-    submit.style.display = 'block'
-    timerEl.style.display='none';
-    btnOne.style.display = 'none';
-    btnTwo.style.display = 'none';
-    btnThree.style.display = 'none';
-    btnFour.style.display = 'none';
-    countEl.style.display = 'none'
-    const score = localStorage.getItem('score');
-    // document.getElementById('score').innerHTML = score;
-    test.textContent = `Congrats!! Your score is ${score}!`
+  initials.style.display = 'block'
+  submit.style.display = 'block'
+  description.style.display = 'block'
+  // timerEl.style.display='none';
+  btnOne.style.display = 'none';
+  btnTwo.style.display = 'none';
+  btnThree.style.display = 'none';
+  btnFour.style.display = 'none';
+  countEl.style.display = 'none'
+  // document.getElementById('score').innerHTML = score;
+  test.textContent = ('WOW! You finished!')
+  description.textContent = ('Enter your name to be etched into the hall of fame!')
+  clearInterval(timeInterval)
+  }
+  
+  submit.addEventListener('click', function(event) {
+    event.preventDefault();
+    button.style.display = 'block'
+    button.textContent = ('Click Here To Play Again')
+    description.style.display = 'none'
+    submit.style.display = 'none'
+    initials.style.display = 'none'
+    const highScoreInitial = initials.value
+    localStorage.setItem('initials', highScoreInitial)
+    // console.log(highScoreInitial)
     
+    const yourScore = localStorage.getItem('score');
+    test.textContent = (`Congrats ${highScoreInitial}! Your score is ${yourScore}!`)
+    renderLeaders()
+})
+
+function renderLeaders() {
+  let leaderArr = []
+  let ol = document.getElementById('highList')
+  let board = document.getElementById('board')
+  let boardText = document.createElement('h2')
+  board.textContent = ("Here's the leaders so far!")
+  board.style.textAlign = "center"
+  board.style.fontFamily = "sans-serif"
+  board.style.fontWeight = "bold"
+  board.style.marginTop = "10%"
+  board.appendChild(boardText)
+
+
+
+  leaderArr.push(localStorage.getItem('initials'))
+  leaderArr.push(localStorage.getItem('score'))
+  for (let i=0; i<leaderArr.length; i++) {
+    var li = document.createElement('h2')
+    li.style.fontWeight = "bold"
+    li.style.fontFamily = "sans-serif"
+    li.style.textAlign = "center"
+    li.style.backgroundColor = "red"
+    li.style.color = "white"
+    ol.appendChild(li)
+  }console.log(leaderArr)
+  li.innerText = `${leaderArr[0]} has a score of ${leaderArr[1]}`;
 }
