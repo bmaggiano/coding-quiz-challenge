@@ -108,6 +108,13 @@ function questionTwo() {
         btnThree.textContent = questions[1].options[2];
         btnFour.textContent = questions[1].options[3];
   }
+
+  [btnThree, btnTwo, btnFour].forEach((element)=>{
+    element.addEventListener('click', (e)=>{
+        timeLeft -=5;
+    })
+  }, {once : true})
+
   btnOne.addEventListener('click', function() {
     
     questionThree();
@@ -130,6 +137,13 @@ function questionThree() {
         btnThree.textContent = questions[2].options[2];
         btnFour.textContent = questions[2].options[3];
   }
+
+  [btnOne, btnTwo, btnThree].forEach((element)=>{
+    element.addEventListener('click', (e)=>{
+        timeLeft -=5;
+    })
+  }, {once : true})
+
   btnFour.addEventListener('click', function() {
     
     questionFour();
@@ -151,6 +165,13 @@ function questionFour() {
         btnThree.textContent = questions[3].options[2];
         btnFour.textContent = questions[3].options[3];
   }
+
+  [btnOne, btnThree, btnFour].forEach((element)=>{
+    element.addEventListener('click', (e)=>{
+        timeLeft -=5;
+    })
+  }, {once : true})
+
   btnTwo.addEventListener('click', function() {
     // count ++;
     // countEl.textContent = count;
@@ -174,6 +195,13 @@ function questionFive() {
         btnThree.textContent = questions[4].options[2];
         btnFour.textContent = questions[4].options[3];
   }
+
+  [btnThree, btnTwo, btnFour].forEach((element)=>{
+    element.addEventListener('click', (e)=>{
+        timeLeft -=5;
+    })
+  }, {once : true})
+
   btnOne.addEventListener('click', function() {
     count ++;
     countEl.textContent = count;
