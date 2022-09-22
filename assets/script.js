@@ -2,19 +2,16 @@ const questions = [
   {
     question: "Which one of the following is not a valid HTML tag?",
     options: ["div", "span", "req", "section"],
-    answer: "req",
   },
   {
     question:
       "What is the standard direction of flex items unless otherwise specified?",
     options: ["row", "column", "diagonal", "reverse"],
-    answer: "row",
   },
   {
     question:
       "If you wanted to style an HTML class, which character would you use?",
     options: ["#", "$", "&", "."],
-    answer: ".",
   },
   {
     question: "When using comparisons, what does === describe?",
@@ -24,7 +21,6 @@ const questions = [
       "Equal in value",
       "Not equal at all",
     ],
-    answer: "Equal in type and value",
   },
   {
     question: "What does CSS stand for?",
@@ -34,7 +30,6 @@ const questions = [
       "Client side syntax",
       "Colorful style signal",
     ],
-    answer: "Cascading style sheet",
   },
 ];
 
