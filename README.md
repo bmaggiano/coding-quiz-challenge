@@ -8,6 +8,8 @@ This project is a coding quiz challenge that asks a user to complete a quiz unde
 
 ## Screenshot
 
+![image](https://user-images.githubusercontent.com/103971233/191646108-c6855e58-2a8e-4e0a-8046-c00b10e8286d.png)
+
 ## Credits
 
 For special fonts I used google.com fonts (Roboto Mono, and Permanent Marker) and linked those in the head of the index.html doc.
